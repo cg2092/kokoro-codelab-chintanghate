@@ -1,0 +1,11 @@
+.select-fancy-noimage:after {
+  content: "";
+  width: 0;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  border-width: 6px 4px;
+  border-style: solid;
+  pointer-events: none;
+  border-color: #656565 transparent transparent transparent;
+}

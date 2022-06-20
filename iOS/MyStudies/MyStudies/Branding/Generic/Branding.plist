@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>appleId</key>
+	<string></string>
+	<key>ProductTitleName</key>
+	<string>App Name</string>
+	<key>StandaloneStudyId</key>
+	<string>SingleStudy01</string>
+	<key>IsStandaloneStudyApp</key>
+	<false/>
+	<key>JoinStudyButtonTitle</key>
+	<string>Participate</string>
+	<key>ViewConsentButtonTitle</key>
+	<string>View consent</string>
+	<key>VisitWebsiteButtonTitle</key>
+	<string>Visit website</string>
+	<key>ConsentPDF</key>
+	<string>Consent PDF</string>
+	<key>LeaveStudy</key>
+	<string>Leave study</string>
+	<key>WebsiteLink</key>
+	<string></string>
+	<key>WebsiteButtonTitle</key>
+	<string>App website</string>
+	<key>TermsAndConditionURL</key>
+	<string></string>
+	<key>PrivacyPolicyURL</key>
+	<string></string>
+	<key>ValidatedTitle</key>
+	<string>Eligibility confirmed</string>
+	<key>AllowFeedback</key>
+	<true/>
+	<key>NavigationTitleName</key>
+	<string>App Name</string>
+	<key>PoweredByTitleName</key>
+	<string>Powered by FDA MyStudies on Google Cloud</string>
+</dict>
+</plist>

@@ -1,0 +1,67 @@
+<!-- 
+  Copyright 2020-2021 Google LLC
+ 
+  Use of this source code is governed by an MIT-style
+  license that can be found in the LICENSE file or at
+  https://opensource.org/licenses/MIT. -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>Error page</title>
+<link rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" th:href="@{/css/utilities.css}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+@-moz-document url-prefix() { 
+  .child__error_page { 
+    position:absolute!important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .width__110 {
+    text-align: center !important;
+  }
+
+  .child_text { 
+    color: #353a3e !important;
+    font-family: Muli,sans-serif !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+   }
+}
+
+.child_text { 
+  color: #353a3e !important;
+  font-family: Muli,sans-serif !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+}
+
+.loading_error_text {
+  color: var(--space-gray);
+  font-size: 14px;
+  font-family: Muli, sans-serif !important;
+  font-weight: 600;
+  text-align: center;
+}
+</style>
+
+</head>
+<body class="bg__aqua-gray">
+  <div class="child__error_page">
+    <div class="width__110">
+      <img th:src="@{/images/ErrorIcon.svg}" alt="error image " class="mb-md" />
+    </div>
+    <div class="loading_error_text child_text">
+      <div>Sign in is not available.</div>
+      <div>Please try again later.</div>
+    </div>
+  </div>
+</body>
+</html>

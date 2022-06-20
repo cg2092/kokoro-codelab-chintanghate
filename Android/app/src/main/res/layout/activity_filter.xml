@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tab_color"
+    tool:context="com.harvard.studyappmodule.FilterActivity">
+
+    <RelativeLayout
+        android:id="@+id/mBottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="20dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mCancelTextView"
+            style="@style/TextType2"
+            android:background="@drawable/rectangle_black_border"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/colorSecondary" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mApplyTextView"
+            style="@style/TextType2"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/rectangle_blue_border"
+            android:gravity="center"
+            android:text="@string/apply"
+            android:textColor="@color/colorSecondaryStatBar" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/mBottomLayout"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="0dp"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/mColumn1Layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <RelativeLayout
+                    android:id="@+id/mParticipationStatusLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".6">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/mParticipationStatusLabel"
+                        style="@style/TextType2"
+                        android:text="@string/participation_status_small"
+                        android:textColor="@color/white" />
+
+
+                    <RelativeLayout
+                        android:id="@+id/mInProgressLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/mParticipationStatusLabel"
+                        android:layout_marginTop="15dp">
+
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/mInProgressSelctBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:button="@drawable/radio_button_netwok_selector"
+                            android:padding="2dp"
+                            android:saveEnabled="false" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/mInProgressLabel"
+                            style="@style/TextType2"
+                            android:layout_marginLeft="13dp"
+                            android:layout_toRightOf="@+id/mInProgressSelctBtn"
+                            android:text="@string/in_progress"
+                            android:textColor="@color/colorSecondary" />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:id="@+id/mYettoJoinLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/mInProgressLayout"
+                        android:layout_marginTop="15dp">
+
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/mYettoJoinSelctBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:button="@drawable/radio_button_netwok_selector"
+                            android:padding="2dp"
+                            android:saveEnabled="false" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/mYettoJoinLabel"
+                            style="@style/TextType2"
+                            android:layout_marginLeft="13dp"
+                            android:layout_toRightOf="@+id/mYettoJoinSelctBtn"
+                            android:text="@string/yet_to_join_filter"
+                            android:textColor="@color/colorSecondary" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/mCompletedLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/mYettoJoinLayout"
+                        android:layout_marginTop="15dp">
+
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/mCompletedSelectBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:button="@drawable/radio_button_netwok_selector"
+                            android:padding="2dp"
+                            android:saveEnabled="false" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/mCompletedLabel"
+                            style="@style/TextType2"
+                            android:layout_marginLeft="13dp"
+                            android:layout_toRightOf="@+id/mCompletedSelectBtn"
+                            android:text="@string/completed"
+                            android:textColor="@color/colorSecondary" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/mWithdrawnLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/mCompletedLayout"
+                        android:layout_marginTop="15dp">
+
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/mWithdrawnSelectBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:button="@drawable/radio_button_netwok_selector"
+                            android:padding="2dp"
+                            android:saveEnabled="false" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/mWithdrawnLabel"
+                            style="@style/TextType2"
+                            android:layout_marginLeft="13dp"
+                            android:layout_toRightOf="@+id/mWithdrawnSelectBtn"
+                            android:text="@string/withdrawn"
+                            android:textColor="@color/colorSecondary" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/mNotEligibleLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/mWithdrawnLayout"
+                        android:layout_marginTop="15dp">
+
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/mNotEligibleSelectBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:button="@drawable/radio_button_netwok_selector"
+                            android:padding="2dp"
+                            android:saveEnabled="false" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/mNotEligibleLabel"
+                            style="@style/TextType2"
+                            android:layout_marginLeft="13dp"
+                            android:layout_toRightOf="@+id/mNotEligibleSelectBtn"
+                            android:text="@string/not_eligible"
+                            android:textColor="@color/colorSecondary" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/statuslayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".4">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/mAllStudiesLabel"
+                        style="@style/TextType2"
+                        android:text="@string/allstudies"
+                        android:textColor="@color/white" />
+
+
+                    <RelativeLayout
+                        android:id="@+id/mActiveLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/mAllStudiesLabel"
+                        android:layout_marginTop="15dp">
+
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/mActiveSelectBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:button="@drawable/radio_button_netwok_selector"
+                            android:padding="2dp"
+                            android:saveEnabled="false" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/mActiveLabel"
+                            style="@style/TextType2"
+                            android:layout_marginLeft="13dp"
+                            android:layout_toRightOf="@+id/mActiveSelectBtn"
+                            android:text="@string/active_caps"
+                            android:textColor="@color/colorSecondary" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/mPausedLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/mActiveLayout"
+                        android:layout_marginTop="15dp">
+
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/mPausedSelectBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:button="@drawable/radio_button_netwok_selector"
+                            android:padding="2dp"
+                            android:saveEnabled="false" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/mPausedLabel"
+                            style="@style/TextType2"
+                            android:layout_marginLeft="13dp"
+                            android:layout_toRightOf="@+id/mPausedSelectBtn"
+                            android:text="@string/paused_first_cap"
+                            android:textColor="@color/colorSecondary" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/mClosedLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/mPausedLayout"
+                        android:layout_marginTop="15dp">
+
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/mClosedSelectBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:button="@drawable/radio_button_netwok_selector"
+                            android:padding="2dp"
+                            android:saveEnabled="false" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/mClosedLabel"
+                            style="@style/TextType2"
+                            android:layout_marginLeft="13dp"
+                            android:layout_toRightOf="@+id/mClosedSelectBtn"
+                            android:text="@string/closed_caps"
+                            android:textColor="@color/colorSecondary" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

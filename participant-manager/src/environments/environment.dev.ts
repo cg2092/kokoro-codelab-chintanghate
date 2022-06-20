@@ -1,0 +1,15 @@
+export const environment = {
+  production: true,
+  participantManagerDatastoreUrl: '',
+  baseHref: '/',
+  hydraLoginUrl: '',
+  authServerUrl: '',
+  authServerRedirectUrl: '',
+  hydraClientId: '',
+  appVersion: '',
+  termsPageTitle: 'Terms title goes here',
+  termsPageDescription: 'Terms description goes here',
+  aboutPageTitle: 'About page title goes here',
+  aboutPageDescription: 'About page description goes here',
+  copyright: 'Copyright 2020-2021 Google LLC.',
+};

@@ -1,0 +1,326 @@
+<header>
+  <div id="desktop-menu">
+    <div class="bs-example bs__example">
+      <nav class="navbar navbar-expand-md p-none">
+        <a
+          [routerLink]="disableButton ? [] : ['/coordinator']"
+          class="navbar-brand cursor__none"
+        >
+          <img
+            class="cursor__none mr-sm width__auto"
+            src="assets/images/branding/landing-logo.png"
+            alt="main logo"
+          />
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>
+<ng-container>
+  <section class="max__w__850 add__location">
+    <form
+      [formGroup]="setupAccountForm"
+      (ngSubmit)="registerUser()"
+      autocomplete="off"
+    >
+      <h2 class="subheader__title mb-sm mt-lg">Set up account</h2>
+      <section class="bg__white card__inside__pad box__shadow-cmn m-none">
+        <div class="mt-lg">
+          <div class="row border-bottom__c4d1e6">
+            <div class="col-xs-12 col-md-12 p-none">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="email"
+                  placeholder="Enter email"
+                  formControlName="email"
+                  readonly
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-md-6 p-none border-right__c4d1e6">
+              <div class="form-group">
+                <label for="fname" class="txt_style_unset">First name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="fname"
+                  placeholder="Enter first name"
+                  pattern="^(?!\s)[A-Za-z0-9\s*()_+|:.-]*$"
+                  formControlName="firstName"
+                />
+                <div
+                  class="validation-error"
+                  *ngIf="
+                    f.firstName.invalid &&
+                    (f.firstName.dirty || f.firstName.touched)
+                  "
+                >
+                  <span
+                    class="help-block with-errors error__msg"
+                    *ngIf="f.firstName.errors?.required"
+                  >
+                    Enter a first name
+                  </span>
+                  <span
+                    class="help-block with-errors error__msg"
+                    *ngIf="f.firstName.errors?.pattern"
+                  >
+                    Please use characters from the following set only: A-Z a-z
+                    0-9 *()_+|:.-
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-6 p-none">
+              <div class="form-group">
+                <label for="lname" class="txt_style_unset">Last name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lname"
+                  placeholder="Enter last name"
+                  formControlName="lastName"
+                  pattern="^[A-Za-z0-9*()_+|:.-]*$"
+                />
+                <div
+                  class="validation-error"
+                  *ngIf="
+                    f.lastName.invalid &&
+                    (f.lastName.dirty || f.lastName.touched)
+                  "
+                >
+                  <span
+                    class="help-block with-errors error__msg"
+                    *ngIf="f.lastName.errors?.required"
+                  >
+                    Enter a last name
+                  </span>
+                  <span
+                    class="help-block with-errors error__msg"
+                    *ngIf="f.lastName.errors?.pattern"
+                  >
+                    Please use characters from the following set only: A-Z a-z
+                    0-9 *()_+|:.-
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- <div
+        class="col-xs-6 col-md-6 p-1 p-lg-0 cursor__pointer passCriteria"
+        data-toggle="tooltip"
+        title="{{ passCriteria }}"
+      >
+        <a class="subheader__title float-right">
+          <span>
+            <img
+              class="mr-xs helpout_svg cursor__pointer"
+              src="assets/svgs/help_outline.svg"
+              alt="Go back"
+            />
+          </span>
+
+          <span class="subheader__title font12">Password criteria</span>
+        </a>
+      </div> -->
+
+      <div class="col-xs-6 col-md-6 p-1 p-lg-0 float-right cursor__pointer">
+        <div class="form-group">
+          <div class="custom__labels">
+            <label class="mt-xs float-right pr-1">
+              <span
+                class="tool"
+                data-tip="Your password must be at least 8 characters long and contain lower case, upper case, numeric and special characters."
+                tabindex="1"
+              >
+                <a class="subheader__title float-right">
+                  <span>
+                    <img
+                      class="mr-xs helpout_svg cursor__pointer"
+                      src="assets/svgs/help_outline.svg"
+                      alt="Go back"
+                    />
+                  </span>
+
+                  <span class="subheader__title font12">Password criteria</span>
+                </a>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="subheader__title mb-sm">Create password</h2>
+      <section class="bg__white card__inside__pad box__shadow-cmn m-none">
+        <div class="row">
+          <div class="col-xs-12 col-md-6 p-none border-right__c4d1e6">
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                [type]="fieldTextType ? 'text' : 'password'"
+                class="form-control"
+                id="password"
+                placeholder="Enter password"
+                class="form-control"
+                formControlName="password"
+              />
+              <i
+                class="fa fa-fw field-icon toggle-password"
+                [ngClass]="{
+                  'fa-eye-slash': !fieldTextType,
+                  'fa-eye': fieldTextType
+                }"
+                (click)="toggleFieldTextType()"
+              ></i>
+
+              <div
+                class="validation-error help-block with-errors error__msg"
+                *ngIf="f.password.dirty || f.password.touched"
+              >
+                <div *ngIf="f.password.dirty">
+                  <span
+                    [ngClass]="
+                      meterStatus == 'Weak'
+                        ? 'weakPwd'
+                        : meterStatus == 'Fair'
+                        ? 'fairPwd'
+                        : meterStatus == 'Good'
+                        ? 'goodPwd'
+                        : 'strongPwd'
+                    "
+                  >
+                    {{ meterStatus }}
+                  </span>
+                  <meter
+                    low="{{ passwordMeterLow }}"
+                    optimum="{{ passwordMeterOptimum }}"
+                    high="{{ passwordMeterHigh }}"
+                    value="{{ passwordMeterValue }}"
+                  ></meter>
+                </div>
+                <div
+                  *ngIf="
+                    submitted ||
+                    (f.password.invalid &&
+                      (f.password.dirty || f.password.touched))
+                  "
+                  class="help-block"
+                >
+                  <span
+                    class="help-block with-errors error__msg text-left"
+                    *ngIf="f.password.errors?.required"
+                  >
+                    Enter a password
+                  </span>
+                  <div
+                    class="text-left"
+                    *ngIf="f.password.errors?.passwordlength"
+                  >
+                    {{ getError("EC_0084") }}
+                  </div>
+                  <div
+                    class="text-left"
+                    *ngIf="f.password.errors?.consecutiveCharactErrorwhitespace"
+                  >
+                    {{ getError("EC_0081") }}
+                  </div>
+                  <div
+                    class="text-left"
+                    *ngIf="f.password.errors?.userNameError"
+                  >
+                    {{ getError("EC_0082") }}
+                  </div>
+                  <div
+                    class="text-left"
+                    *ngIf="f.password.errors?.serviceNameError"
+                  >
+                    {{ getError("EC_0083") }}
+                  </div>
+                  <!-- <span
+                    class="help-block with-errors error__msg"
+                    *ngIf="f.password.errors?.validPassword"
+                  >
+                    Your password must be at least 8 characters long and contain
+                    lower case, upper case, numeric and special characters.
+                  </span> -->
+                  <span
+                    class="help-block float-left"
+                    *ngIf="
+                      f.password.invalid &&
+                      setupAccountForm.controls['password'].value.length == 0
+                    "
+                  >
+                    Enter a password
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6 p-none">
+            <div class="form-group">
+              <label for="confirmPassword" class="txt_style_unset">
+                Confirm password
+              </label>
+              <input
+                type="password"
+                class="form-control"
+                id="confirmPassword"
+                placeholder="Confirm password"
+                formControlName="confirmPassword"
+              />
+              <div
+                class="validation-error"
+                *ngIf="
+                  f.confirmPassword.invalid &&
+                  (f.confirmPassword.dirty || f.confirmPassword.touched)
+                "
+              >
+                <span
+                  class="help-block with-errors error__msg"
+                  *ngIf="f.confirmPassword.errors?.required"
+                >
+                  Please confirm password
+                </span>
+                <span
+                  class="help-block with-errors error__msg"
+                  *ngIf="f.confirmPassword.errors?.mustMatch"
+                >
+                  Passwords do not match
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="btn__container flex__justify__space-between mb-xlg">
+        <div>
+          <button
+            type="submit"
+            name="save"
+            class="btn bt__add mr-sm"
+            [disabled]="!setupAccountForm.valid || disableButton"
+          >
+            Submit
+          </button>
+          <button
+            routerLink="/login"
+            name="cancel"
+            type="button"
+            class="btn bt__cancel"
+            [disabled]="disableButton"
+          >
+            Cancel
+          </button>
+        </div>
+      </section>
+    </form>
+  </section>
+</ng-container>
+<app-footer></app-footer>

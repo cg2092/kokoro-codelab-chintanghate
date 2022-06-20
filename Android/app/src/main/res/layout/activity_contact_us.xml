@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_signup"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context="com.harvard.usermodule.SignupActivity">
+
+    <RelativeLayout
+        android:id="@+id/submitButtonlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/info_txt"
+            style="@style/contactUsTextField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/we_will_get_back_to_you_as_soon_as_possible"
+            android:textSize="12sp" />
+
+        <View
+            android:id="@+id/hrline8"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/info_txt"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorSecondaryBg" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/submitButton"
+            style="@style/TextType2"
+            android:layout_below="@+id/hrline8"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/rectangle_black_white"
+            android:gravity="center"
+            android:text="@string/submit"
+            android:textColor="@color/colorPrimary" />
+    </RelativeLayout>
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/topView"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/white"
+        android:clickable="false"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/backBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/back_btn1_grey" />
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/title"
+                style="@style/TextType2"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="@string/contact_us"
+                android:textColor="@color/colorPrimaryBlack" />
+
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/hrLine1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/topView"
+        android:background="@color/colorSecondaryBg" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/submitButtonlayout"
+        android:layout_below="@+id/hrLine1"
+        android:layout_marginBottom="15dp"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rel_first_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="18dp"
+                android:paddingRight="20dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/firstName"
+                    style="@style/signUpTextField"
+                    android:text="@string/first_name" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edittxt_firstName"
+                    style="@style/signUpEditText"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_"
+                    android:hint="@string/enter_first_name"
+                    android:imeOptions="actionNext"
+                    android:inputType="textVisiblePassword"
+                    android:maxLength="32"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textCursorDrawable="@drawable/custom_cursor_drawable" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/hrline4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/edittxt_firstName"
+                    android:layout_marginTop="18dp"
+                    android:background="@color/colorSecondaryBg" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rel_first_name"
+                android:paddingLeft="20dp"
+                android:paddingTop="18dp"
+                android:paddingRight="20dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/email_label"
+                    style="@style/signUpTextField"
+                    android:text="@string/email" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edittxt_email"
+                    style="@style/signUpEditText"
+                    android:hint="@string/enter_email"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textCursorDrawable="@drawable/custom_cursor_drawable" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/hrline5"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/edittxt_email"
+                    android:layout_marginTop="18dp"
+                    android:background="@color/colorSecondaryBg" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_subject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rel_email"
+                android:paddingLeft="20dp"
+                android:paddingTop="18dp"
+                android:paddingRight="20dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/subject_label"
+                    style="@style/signUpTextField"
+                    android:text="@string/subject" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edittxt_subject"
+                    style="@style/signUpEditText"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:hint="@string/enter_subject"
+                    android:imeOptions="actionNext"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textCursorDrawable="@drawable/custom_cursor_drawable" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/hrline6"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/edittxt_subject"
+                    android:layout_marginTop="18dp"
+                    android:background="@color/colorSecondaryBg" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rel_subject"
+                android:paddingLeft="20dp"
+                android:paddingTop="18dp"
+                android:paddingRight="20dp">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/message_label"
+                    style="@style/contactUsTextField"
+                    android:text="@string/message" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edittxt_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/message_label"
+                    android:layout_marginTop="18dp"
+                    android:background="@null"
+                    android:gravity="top"
+                    android:hint=""
+                    android:textColor="@color/colorPrimaryBlack"
+                    android:textColorHint="@color/colorSecondary"
+                    android:textCursorDrawable="@drawable/custom_cursor_drawable" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
